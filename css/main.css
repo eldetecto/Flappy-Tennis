@@ -31,7 +31,7 @@ html, body {
 }
 #platform {
 	position: absolute;
-	margin: 90vh 21vw 0 21vw;
+	margin: 90vh 21vw 0 0;
 	width: 40vw;
 	height: 2vh;
 	background: red;
