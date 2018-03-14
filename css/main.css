@@ -15,7 +15,7 @@ html, body {
 #game_field {
 	position: relative;
 	margin: 0 5vh;
-	background: url("../images/background.png") top center;
+	background: url("../images/background.jpg") top center;
 	background-size: cover;
 	height: 95vh;
 }
