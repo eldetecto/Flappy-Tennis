@@ -1,0 +1,4 @@
+var gameDiv = document.getElementById('game_field');
+var platformDiv = document.getElementById('platform');
+
+onmousemove="platformDiv = event.pageX+':'+page.clientY"
