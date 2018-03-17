@@ -1,9 +1,13 @@
+// Переменные -----------------------------------------------------------------
 var gameDiv = document.getElementById('game_field');
 var platformDiv = document.getElementById('platform');
+var ballDiv = document.getElementById('platform');
+//-----------------------------------------------------------------------------
 
+// Перемещение платформы ------------------------------------------------------
 gameDiv.onmousemove = function(e) {
 
-/* Получаем координаты мышки */
+// Получаем координаты мышки
   var gameDivCoords = gameDiv.getBoundingClientRect();
 /* Левая граница движения платформы 
 где: 
@@ -12,11 +16,11 @@ gameDiv.offsetLeft - левый отступ игрового поля от кр
 platformDiv.offsetWidth / 2 -половина ширины платформы
 */
   var calcLeft = e.clientX - gameDiv.offsetLeft - platformDiv.offsetWidth / 2;
-/* Правая граница движения платформы */
+//Правая граница движения платформы
   var gameRightX = gameDiv.offsetWidth - platformDiv.offsetWidth;
   
-  /* облегченный код */
-  var styleLeft = calcLeft
+  // облегченный код 
+  var styleLeft = calcLeft;
 
   if (calcLeft <= 0 ) { 
   	styleLeft = 0
@@ -26,7 +30,7 @@ platformDiv.offsetWidth / 2 -половина ширины платформы
 	styleLeft = gameRightX
   }
 
-  platformDiv.style.left = styleLeft + 'px'
+  platformDiv.style.left = styleLeft + 'px';
 
 
   /* старый код
@@ -36,7 +40,31 @@ platformDiv.offsetWidth / 2 -половина ширины платформы
   }  
 
   */
-
-  console.log(calcLeft, gameRightX, 10)
-    
+   
 };
+//-----------------------------------------------------------------------------
+
+// Перемещение шарика ---------------------------------------------------------
+/*
+var ballTimerId = setInterval(function(e) {
+ 
+	var gameDivCoords = gameDiv.getBoundingClientRect();
+	var ballCalcTop = ballDiv.clientY;
+
+	ballDiv.style.top = ballCalcTop - 1 + 'px'
+		console.log(ballCalcTop, 0)
+ }, 1000);
+ */
+
+var ballBottom = gameDiv.clientHeight - platformDiv.clientHeight; 
+
+animate({
+  duration: 2000,
+  timing: makeEaseOut(bounce),
+  draw: function(progress) {
+    ball.style.top = ballBottom * progress + 'px'
+  }
+});
+
+
+//-----------------------------------------------------------------------------

@@ -20,7 +20,7 @@ html, body {
 	height: 95vh;
 }
 
-.ball {
+#ball {
 	position: absolute;
     margin: 84vh 26vh 0 26vh;
 	width: 6vh;
